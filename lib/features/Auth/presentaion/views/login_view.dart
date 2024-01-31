@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:foody/features/Auth/presentaion/widgets/login_body.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
   static const String id = '/LoginView';
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold(
+      body: LoginBody(),
+    );
   }
 }

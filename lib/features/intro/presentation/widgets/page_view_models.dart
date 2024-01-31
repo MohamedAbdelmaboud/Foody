@@ -26,7 +26,7 @@ List<PageViewModel> pages = [
   ),
   PageViewModel(
     titleWidget: SvgPicture.asset(
-      Assets.assetsImagesOrderfoodAmico,
+      Assets.assetsImagesOrderfoodBro,
       height: 300,
     ),
     decoration: buildPageDecoration(),

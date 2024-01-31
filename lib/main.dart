@@ -15,8 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.light()
-          .copyWith(textTheme: GoogleFonts.montserratTextTheme()),
+      theme: ThemeData.light().copyWith(
+        textTheme: GoogleFonts.montserratTextTheme(),
+      ),
       debugShowCheckedModeBanner: false,
       initialRoute: SplashView.id,
       routes: {
