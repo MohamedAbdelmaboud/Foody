@@ -47,4 +47,6 @@ class Assets {
   /// assets/images/Order food-pana.svg
   static const String assetsImagesOrderfoodPana =
       "assets/images/Order food-pana.svg";
+  static const String assetsImagesEmailsamico =
+      "assets/images/Emails-amico.svg";
 }
