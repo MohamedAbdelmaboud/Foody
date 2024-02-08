@@ -29,116 +29,118 @@ class _LoginBodyState extends State<LoginBody> {
         autovalidateMode: autovalidateMode,
         key: key,
         child: SafeArea(
-          child: Column(
-            children: [
-              SvgPicture.asset(
-                Assets.login,
-                height: 200,
-              ),
-              Text(
-                'Login to continue',
-                style:
-                    Styles.textStyle20.copyWith(color: MyColors.primaryColor),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              CustomColumn(
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'This field is required';
-                  }
-                  return null;
-                },
-                prefixIcon: Icons.email_outlined,
-                text: 'Email',
-                hintText: 'Enter your Email',
-              ),
-              const Row(
-                children: [
-                  Text(
-                    'Password',
-                    style: Styles.textStyle14,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SvgPicture.asset(
+                  Assets.login,
+                  height: 200,
+                ),
+                Text(
+                  'Login to continue',
+                  style:
+                      Styles.textStyle20.copyWith(color: MyColors.primaryColor),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                CustomColumn(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'This field is required';
+                    }
+                    return null;
+                  },
+                  prefixIcon: Icons.email_outlined,
+                  text: 'Email',
+                  hintText: 'Enter your Email',
+                ),
+                const Row(
+                  children: [
+                    Text(
+                      'Password',
+                      style: Styles.textStyle14,
+                    ),
+                  ],
+                ),
+                CustomTextFromField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'This field is required';
+                    }
+                    return null;
+                  },
+                  prefixIcon: Icons.lock_outline,
+                  hintText: 'Enter your password',
+                  suffixIcon: Icons.visibility,
+                ),
+                TextButton(
+                  onPressed: () {
+                    /*
+                try to make it as a Pro
+                */
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 15.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          'Forget password?',
+                          style: Styles.textStyle14.copyWith(color: Colors.blue),
+                        ),
+                      ],
+                    ),
                   ),
-                ],
-              ),
-              CustomTextFromField(
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'This field is required';
-                  }
-                  return null;
-                },
-                prefixIcon: Icons.lock_outline,
-                hintText: 'Enter your password',
-                suffixIcon: Icons.visibility,
-              ),
-              TextButton(
-                onPressed: () {
-                  /*
-              try to make it as a Pro
-              */
-                },
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15.0),
+                ),
+                CustomButton(
+                  text: 'Login',
+                  onPressed: () {
+                    if (key.currentState!.validate()) {
+                      Navigator.pushReplacementNamed(context, HomeView.id);
+                    } else {
+                      setState(() {
+                        autovalidateMode = AutovalidateMode.always;
+                      });
+                    }
+                  },
+                  isLoading: false,
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        'Forget password?',
-                        style: Styles.textStyle14.copyWith(color: Colors.blue),
-                      ),
+                      svgPic(Assets.assetsImagesIcons8Google),
+                      svgPic(Assets.assetsImagesIcons8Twitterx),
+                      svgPic(Assets.assetsImagesIcons8Facebook),
+                      svgPic(Assets.assetsImagesIcons8Github)
                     ],
                   ),
                 ),
-              ),
-              CustomButton(
-                text: 'Login',
-                onPressed: () {
-                  if (key.currentState!.validate()) {
-                    Navigator.pushReplacementNamed(context, HomeView.id);
-                  } else {
-                    setState(() {
-                      autovalidateMode = AutovalidateMode.always;
-                    });
-                  }
-                },
-                isLoading: false,
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0),
-                child: Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    svgPic(Assets.assetsImagesIcons8Google),
-                    svgPic(Assets.assetsImagesIcons8Twitterx),
-                    svgPic(Assets.assetsImagesIcons8Facebook),
-                    svgPic(Assets.assetsImagesIcons8Github)
-                  ],
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Don't have an account?",
-                    style: Styles.textStyle14,
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, SignUpView.id);
-                    },
-                    child: Text(
-                      'sign up',
-                      style: Styles.textStyle14.copyWith(color: Colors.blue),
+                    const Text(
+                      "Don't have an account?",
+                      style: Styles.textStyle14,
                     ),
-                  ),
-                ],
-              )
-            ],
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, SignUpView.id);
+                      },
+                      child: Text(
+                        'sign up',
+                        style: Styles.textStyle14.copyWith(color: Colors.blue),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

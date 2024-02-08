@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foody/features/Auth/presentaion/views/login_view.dart';
-import 'package:foody/features/Auth/presentaion/views/sign_up_view.dart';
-import 'package:foody/features/home/presentaion/views/home_view.dart';
-import 'package:foody/features/intro/presentation/views/on_boarding_view.dart';
+import 'package:foody/core/themes/light_theme.dart';
+import 'package:foody/core/utlis/routes.dart';
 import 'package:foody/features/splash/presentation/views/splash_view.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,18 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.light().copyWith(
-        textTheme: GoogleFonts.montserratTextTheme(),
-      ),
+      theme: lightTheme,
       debugShowCheckedModeBanner: false,
       initialRoute: SplashView.id,
-      routes: {
-        SplashView.id: (context) => const SplashView(),
-        OnBoardingView.id: (context) => const OnBoardingView(),
-        LoginView.id: (context) => const LoginView(),
-        SignUpView.id: (context) => const SignUpView(),
-        HomeView.id: (context) => const HomeView(),
-      },
+      routes: routes,
     );
   }
 }
