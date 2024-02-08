@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foody/core/themes/light_theme.dart';
 import 'package:foody/core/utlis/routes.dart';
+import 'package:foody/features/home/presentaion/views/cart_view.dart';
+import 'package:foody/features/home/presentaion/views/home_view.dart';
 import 'package:foody/features/splash/presentation/views/splash_view.dart';
 
 void main() {
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: lightTheme,
       debugShowCheckedModeBanner: false,
-      initialRoute: SplashView.id,
+      initialRoute:CartView.id,
       routes: routes,
     );
   }

@@ -11,7 +11,7 @@ class OnBoardingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return IntroductionScreen(
       pages: pages,
-      animationDuration: 250,
+      animationDuration: 150,
       showDoneButton: true,
       showSkipButton: false,
       showNextButton: true,

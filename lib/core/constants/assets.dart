@@ -49,4 +49,5 @@ class Assets {
       "assets/images/Order food-pana.svg";
   static const String assetsImagesEmailsamico =
       "assets/images/Emails-amico.svg";
+  static const String assetsImagesAddtoCart = "assets/images/AddtoCart.svg";
 }
