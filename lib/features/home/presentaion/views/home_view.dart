@@ -1,7 +1,11 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:foody/core/constants/my_colors.dart';
+import 'package:foody/features/home/presentaion/views/cart_view.dart';
+import 'package:foody/features/home/presentaion/views/favourite_view.dart';
 import 'package:foody/features/home/presentaion/views/widgets/home_body.dart';
+
+import 'widgets/my_bottom_navigation_bar.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -12,9 +16,8 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  var _bottomNavIndex = 0;
   PageController controller = PageController(initialPage: 0);
-
+  var bottomNavIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,26 +34,13 @@ class _HomeViewState extends State<HomeView> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: AnimatedBottomNavigationBar(
-        icons: const [
-          Icons.home_rounded,
-          Icons.favorite_sharp,
-          Icons.shopping_cart_rounded,
-          Icons.person_2_sharp,
-        ],
-        inactiveColor: Colors.white,
-        backgroundColor: MyColors.primaryColor,
-        activeIndex: _bottomNavIndex,
-        gapLocation: GapLocation.center,
-        notchSmoothness: NotchSmoothness.softEdge,
-        elevation: 10,
-        leftCornerRadius: 20,
-        rightCornerRadius: 20,
+      bottomNavigationBar: MyBottomNavigationBar(
+        bottomNavIndex: bottomNavIndex,
         onTap: (index) {
           setState(() {
-            _bottomNavIndex = index;
+            bottomNavIndex = index;
             controller.animateToPage(
-              _bottomNavIndex,
+              bottomNavIndex,
               duration: const Duration(milliseconds: 200),
               curve: Curves.easeInOut,
             );
@@ -60,11 +50,11 @@ class _HomeViewState extends State<HomeView> {
       body: PageView(
         controller: controller,
         scrollDirection: Axis.horizontal,
-       // physics: const BouncingScrollPhysics(),
+        // physics: const BouncingScrollPhysics(),
         children: _list,
         onPageChanged: (index) {
           setState(() {
-            _bottomNavIndex = index;
+            bottomNavIndex = index;
           });
         },
       ),
@@ -74,30 +64,11 @@ class _HomeViewState extends State<HomeView> {
 
 List<Widget> _list = <Widget>[
   const HomeBody(),
+  const FavouriteView(),
+  const CartView(),
   const Center(
-    child: Pages(
-      text: "Page 1",
-    ),
-  ),
-  const Center(
-    child: Pages(
-      text: "Cart",
-    ),
-  ),
-  const Center(
-    child: Pages(
-      text: "Page 3",
+    child: Text(
+      "Page 3",
     ),
   ),
 ];
-
-class Pages extends StatelessWidget {
-  final String text;
-
-  const Pages({Key? key, required this.text}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(text);
-  }
-}
