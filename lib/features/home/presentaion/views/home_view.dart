@@ -1,8 +1,8 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:foody/core/constants/my_colors.dart';
 import 'package:foody/features/home/presentaion/views/cart_view.dart';
 import 'package:foody/features/home/presentaion/views/favourite_view.dart';
+import 'package:foody/features/home/presentaion/views/setting_view.dart';
 import 'package:foody/features/home/presentaion/views/widgets/home_body.dart';
 
 import 'widgets/my_bottom_navigation_bar.dart';
@@ -41,8 +41,8 @@ class _HomeViewState extends State<HomeView> {
             bottomNavIndex = index;
             controller.animateToPage(
               bottomNavIndex,
-              duration: const Duration(milliseconds: 200),
-              curve: Curves.easeInOut,
+              duration: const Duration(milliseconds: 50),
+              curve: Curves.bounceIn,
             );
           });
         },
@@ -51,7 +51,7 @@ class _HomeViewState extends State<HomeView> {
         controller: controller,
         scrollDirection: Axis.horizontal,
         // physics: const BouncingScrollPhysics(),
-        children: _list,
+        children: pages,
         onPageChanged: (index) {
           setState(() {
             bottomNavIndex = index;
@@ -62,13 +62,9 @@ class _HomeViewState extends State<HomeView> {
   }
 }
 
-List<Widget> _list = <Widget>[
+List<Widget> pages = <Widget>[
   const HomeBody(),
   const FavouriteView(),
   const CartView(),
-  const Center(
-    child: Text(
-      "Page 3",
-    ),
-  ),
+  const SettingView(),
 ];

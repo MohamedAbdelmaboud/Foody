@@ -5,8 +5,9 @@ import 'package:foody/core/utlis/styles.dart';
 class FoodItem extends StatelessWidget {
   const FoodItem({
     super.key,
+    this.isFavourite = false,
   });
-
+  final bool isFavourite;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -51,8 +52,7 @@ class FoodItem extends StatelessWidget {
                     maxLines: 5,
                     overflow: TextOverflow.ellipsis,
                     style: Styles.textStyle12.copyWith(
-                      
-                      height:1,
+                        height: 1,
                         color: const Color(0xff000000),
                         fontWeight: FontWeight.bold),
                   ),
@@ -75,8 +75,13 @@ class FoodItem extends StatelessWidget {
             width: 25,
             decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.3), shape: BoxShape.circle),
-            child: const Icon(Icons.favorite_outline_sharp,
-                size: 20, color: Colors.black),
+            child: Icon(
+              isFavourite
+                  ? Icons.favorite_outlined
+                  : Icons.favorite_outline_sharp,
+              size: 20,
+              color: isFavourite ? Colors.red : Colors.black,
+            ),
           ),
         )
       ],
