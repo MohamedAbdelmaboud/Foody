@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:foody/core/constants/my_colors.dart';
 import 'package:foody/core/utlis/styles.dart';
 
+import 'favourite_Button.dart';
+
 class FoodItem extends StatelessWidget {
   const FoodItem({
     super.key,
@@ -70,19 +72,7 @@ class FoodItem extends StatelessWidget {
         Positioned(
           right: 10,
           top: 10,
-          child: Container(
-            height: 25,
-            width: 25,
-            decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.3), shape: BoxShape.circle),
-            child: Icon(
-              isFavourite
-                  ? Icons.favorite_outlined
-                  : Icons.favorite_outline_sharp,
-              size: 20,
-              color: isFavourite ? Colors.red : Colors.black,
-            ),
-          ),
+          child: FavouriteButton.FavouriteButton(isFavourite: isFavourite),
         )
       ],
     );

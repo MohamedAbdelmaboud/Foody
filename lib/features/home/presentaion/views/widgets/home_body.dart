@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foody/core/constants/my_colors.dart';
 import 'package:foody/core/utlis/styles.dart';
-import 'package:foody/features/home/presentaion/views/home_view.dart';
+import 'package:foody/features/home/data/models/category_model.dart';
 import 'package:foody/features/home/presentaion/views/widgets/custom_container.dart';
 import 'package:foody/features/home/presentaion/views/widgets/home_app_bar.dart';
 import 'package:foody/features/home/presentaion/views/widgets/serach_field.dart';
@@ -67,7 +67,9 @@ class HomeBody extends StatelessWidget {
                   ),
                   Text(
                     'See All',
-                    style: Styles.textStyle14.copyWith(color: Colors.grey),
+                    style: Styles.textStyle12.copyWith(
+                      color: MyColors.primaryColor,
+                    ),
                   )
                 ],
               ),
@@ -77,21 +79,39 @@ class HomeBody extends StatelessWidget {
                   height: 35,
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 8,
+                    itemCount: categories.length,
                     separatorBuilder: (BuildContext context, int index) {
                       return const SizedBox(
                         width: 15,
                       );
                     },
                     itemBuilder: (BuildContext context, int index) {
-                      return const CategoryItem();
+                      return CategoryItem(
+                        categoryModel: categories[index],
+                      );
                     },
                   ),
                 ),
               ),
-              Text(
-                'Trending Recipes',
-                style: Styles.textStyle20.copyWith(color: Colors.black),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Trending Recipes',
+                    style: Styles.textStyle20.copyWith(color: Colors.black),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      // print('object');
+                      //fetch all products
+                    },
+                    child: Text(
+                      'View All',
+                      style: Styles.textStyle12
+                          .copyWith(color: MyColors.primaryColor),
+                    ),
+                  )
+                ],
               ),
               const SizedBox(
                 height: 10,

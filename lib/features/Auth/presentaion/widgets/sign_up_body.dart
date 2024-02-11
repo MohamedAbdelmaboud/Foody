@@ -34,7 +34,7 @@ class _SignUpBodyState extends State<SignUpBody> {
             child: Column(
               children: [
                 SvgPicture.asset(
-                  Assets.assetsImagesEmailsamico,
+                  Assets.assetsImagesEmailsAmico,
                   height: 200,
                 ),
                 Text(

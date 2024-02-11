@@ -33,7 +33,7 @@ class _LoginBodyState extends State<LoginBody> {
             child: Column(
               children: [
                 SvgPicture.asset(
-                  Assets.login,
+                  Assets.assetsImagesLogin,
                   height: 200,
                 ),
                 Text(

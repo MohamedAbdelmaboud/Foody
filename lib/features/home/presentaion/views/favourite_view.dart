@@ -45,7 +45,7 @@ class FavouriteView extends StatelessWidget {
           ),
           itemCount: 6,
           itemBuilder: (BuildContext context, int index) {
-            return const FoodItem();
+            return const FoodItem(isFavourite: true,);
           },
         ),
       ),

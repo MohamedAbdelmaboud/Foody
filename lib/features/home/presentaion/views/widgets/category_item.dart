@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/features/home/data/models/category_model.dart';
+
 
 class CategoryItem extends StatelessWidget {
+  final CategoryModel categoryModel;
+
   const CategoryItem({
-    super.key,
-  });
+    Key? key,
+    required this.categoryModel,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +24,11 @@ class CategoryItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Image.asset(
-            'assets/images/image.png',
+            categoryModel.imagePath,
             height: 30,
           ),
           Text(
-            'Main',
+            categoryModel.text,
             style: Styles.textStyle14.copyWith(color: Colors.grey),
           )
         ],
