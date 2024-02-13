@@ -72,7 +72,7 @@ class FoodItem extends StatelessWidget {
         Positioned(
           right: 10,
           top: 10,
-          child: FavouriteButton.FavouriteButton(isFavourite: isFavourite),
+          child: FavouriteButton(isFavourite: isFavourite),
         )
       ],
     );

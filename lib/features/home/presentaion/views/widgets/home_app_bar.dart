@@ -27,7 +27,7 @@ class HomeAppBar extends StatelessWidget {
           },
           child: const badges.Badge(
             badgeContent: Text(
-              '5',
+              '2',
               style: TextStyle(color: Colors.white),
             ),
             showBadge: true, // show if the num bigger than 0
