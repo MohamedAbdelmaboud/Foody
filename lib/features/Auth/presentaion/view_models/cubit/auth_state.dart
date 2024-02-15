@@ -1,5 +1,5 @@
+class AuthState {}
 
- class AuthState {}
 class AuthInitial extends AuthState {}
 
 class LoginLoadingState extends AuthState {}

@@ -18,7 +18,7 @@ class ShakeWidget extends StatelessWidget {
   }) : super(key: key);
 
   double shake(double animation) {
-    return 2 * (0.5- (0.5 - Curves.bounceOut.transform(animation)).abs());
+    return 2 * (0.5 - (0.5 - Curves.bounceOut.transform(animation)).abs());
   }
 
   @override

@@ -33,17 +33,21 @@ dependencies:
   badges: ^3.1.2
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.3
+  dartz: ^0.10.1
+  dio: ^5.4.0
   firebase_auth: ^4.17.4
   firebase_core: ^2.25.4
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.4
+  flutter_facebook_auth: ^6.1.0
   flutter_launcher_icons: ^0.13.1
   flutter_slidable: ^3.0.1
   flutter_spinkit: ^5.2.0
   flutter_svg: ^2.0.9
   fluttertoast: ^8.2.4
   google_fonts: ^6.1.0
+  google_sign_in: ^6.2.1
   introduction_screen: ^3.1.12
 flutter_assets:
   assets_path: assets/

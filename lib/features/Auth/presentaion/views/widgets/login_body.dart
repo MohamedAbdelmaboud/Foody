@@ -11,6 +11,7 @@ import 'package:foody/features/Auth/presentaion/view_models/cubit/auth_state.dar
 import 'package:foody/features/Auth/presentaion/views/sign_up_view.dart';
 import 'package:foody/features/Auth/presentaion/views/widgets/custom_column.dart';
 import 'package:foody/features/Auth/presentaion/views/widgets/custom_text_form_field.dart';
+import 'package:foody/features/home/data/repos/home_repo.dart';
 import 'package:foody/features/home/presentaion/views/home_view.dart';
 
 class LoginBody extends StatefulWidget {
@@ -25,7 +26,7 @@ class LoginBody extends StatefulWidget {
 class _LoginBodyState extends State<LoginBody> {
   final GlobalKey<FormState> key = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-
+  HomeRepo? homeRepo;
   String? emailAddress;
 
   String? password;
@@ -148,10 +149,20 @@ class _LoginBodyState extends State<LoginBody> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          svgPic(Assets.assetsImagesIcons8Google),
-                          svgPic(Assets.assetsImagesIcons8Twitterx),
-                          svgPic(Assets.assetsImagesIcons8Facebook),
-                          svgPic(Assets.assetsImagesIcons8Github)
+                          GestureDetector(
+                            child: svgPic(
+                              path: Assets.assetsImagesIcons8Google,
+                              onTap: () {
+                                BlocProvider.of<AuthCubit>(context)
+                                    .signWithGoogle();
+                              },
+                            ),
+                          ),
+                          svgPic(
+                            path: Assets.assetsImagesIcons8Facebook,
+                          ),
+                          svgPic(path: Assets.assetsImagesIcons8Twitterx),
+                          svgPic(path: Assets.assetsImagesIcons8Github)
                         ],
                       ),
                     ),
@@ -185,12 +196,15 @@ class _LoginBodyState extends State<LoginBody> {
   }
 }
 
-Widget svgPic(String path) {
+Widget svgPic({required String path, void Function()? onTap}) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 8.0),
-    child: SvgPicture.asset(
-      path,
-      height: 35,
+    child: GestureDetector(
+      onTap: onTap,
+      child: SvgPicture.asset(
+        path,
+        height: 35,
+      ),
     ),
   );
 }

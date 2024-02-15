@@ -1,13 +1,14 @@
 class Assets {
   Assets._();
-  
+
   /// Assets for assetsImagesAddtoCart
   /// assets/images/AddtoCart.svg
   static const String assetsImagesAddtoCart = "assets/images/AddtoCart.svg";
 
   /// Assets for assetsImagesEmailsAmico
   /// assets/images/Emails-amico.svg
-  static const String assetsImagesEmailsAmico = "assets/images/Emails-amico.svg";
+  static const String assetsImagesEmailsAmico =
+      "assets/images/Emails-amico.svg";
 
   /// Assets for assetsImagesExplore
   /// assets/images/explore.png
@@ -23,23 +24,28 @@ class Assets {
 
   /// Assets for assetsImagesHealthy lifestyleBro
   /// assets/images/Healthy lifestyle-bro.svg
-  static const String assetsImagesHealthylifestyleBro = "assets/images/Healthy lifestyle-bro.svg";
+  static const String assetsImagesHealthylifestyleBro =
+      "assets/images/Healthy lifestyle-bro.svg";
 
   /// Assets for assetsImagesIcons8Facebook
   /// assets/images/icons8-facebook.svg
-  static const String assetsImagesIcons8Facebook = "assets/images/icons8-facebook.svg";
+  static const String assetsImagesIcons8Facebook =
+      "assets/images/icons8-facebook.svg";
 
   /// Assets for assetsImagesIcons8Github
   /// assets/images/icons8-github.svg
-  static const String assetsImagesIcons8Github = "assets/images/icons8-github.svg";
+  static const String assetsImagesIcons8Github =
+      "assets/images/icons8-github.svg";
 
   /// Assets for assetsImagesIcons8Google
   /// assets/images/icons8-google.svg
-  static const String assetsImagesIcons8Google = "assets/images/icons8-google.svg";
+  static const String assetsImagesIcons8Google =
+      "assets/images/icons8-google.svg";
 
   /// Assets for assetsImagesIcons8Twitterx
   /// assets/images/icons8-twitterx.svg
-  static const String assetsImagesIcons8Twitterx = "assets/images/icons8-twitterx.svg";
+  static const String assetsImagesIcons8Twitterx =
+      "assets/images/icons8-twitterx.svg";
 
   /// Assets for assetsImagesImage
   /// assets/images/image.png
@@ -59,11 +65,13 @@ class Assets {
 
   /// Assets for assetsImagesOrder foodBro
   /// assets/images/Order food-bro.svg
-  static const String assetsImagesOrderfoodBro = "assets/images/Order food-bro.svg";
+  static const String assetsImagesOrderfoodBro =
+      "assets/images/Order food-bro.svg";
 
   /// Assets for assetsImagesOrder foodPana
   /// assets/images/Order food-pana.svg
-  static const String assetsImagesOrderfoodPana = "assets/images/Order food-pana.svg";
+  static const String assetsImagesOrderfoodPana =
+      "assets/images/Order food-pana.svg";
 
   /// Assets for assetsImagesPizza
   /// assets/images/Pizza.png
@@ -81,4 +89,3 @@ class Assets {
   /// assets/images/sweets.png
   static const String assetsImagesSweets = "assets/images/sweets.png";
 }
-

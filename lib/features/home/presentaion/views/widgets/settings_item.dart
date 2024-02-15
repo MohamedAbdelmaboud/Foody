@@ -7,7 +7,6 @@ import 'package:foody/features/home/presentaion/views/widgets/small_button.dart'
 
 class SettingsItem extends StatefulWidget {
   final SettingsModel settingsModel;
-
   const SettingsItem({Key? key, required this.settingsModel}) : super(key: key);
 
   @override
@@ -69,7 +68,8 @@ class _SettingsItemState extends State<SettingsItem> {
                     });
                   },
                 )
-              : const SmallButton(
+              : SmallButton(
+                  onTap: widget.settingsModel.onTap,
                   iconData: Icons.arrow_forward_ios_sharp,
                 )
         ],

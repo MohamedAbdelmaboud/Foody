@@ -14,7 +14,6 @@ class SettingView extends StatelessWidget {
           padding: const EdgeInsets.only(left: 22.0),
           child: IconButton(
             icon: const Icon(
-               
               Icons.arrow_back_ios,
             ),
             onPressed: () {

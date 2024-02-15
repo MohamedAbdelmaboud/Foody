@@ -26,7 +26,7 @@ class OnBoardingView extends StatelessWidget {
         style: TextStyle(fontSize: 20),
       ),
       done: const Text(
-       'Done',
+        'Done',
         style: TextStyle(fontSize: 20),
       ),
       onDone: () => Navigator.pushReplacementNamed(context, LoginView.id),

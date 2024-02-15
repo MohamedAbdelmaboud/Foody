@@ -6,7 +6,6 @@ import 'package:introduction_screen/introduction_screen.dart';
 
 PageDecoration buildPageDecoration() {
   return PageDecoration(
-    
     bodyAlignment: Alignment.center,
     bodyTextStyle: GoogleFonts.montserrat(
       color: const Color(0xff001640),

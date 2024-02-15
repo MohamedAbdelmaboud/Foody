@@ -10,7 +10,7 @@ class CustomContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 180,
+        height: 180,
         padding: const EdgeInsets.all(10.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -28,15 +28,13 @@ class CustomContainer extends StatelessWidget {
               children: [
                 Text(
                   'Top Recepie 👋',
-                  style: Styles.textStyle20
-                      .copyWith(color: Colors.white),
+                  style: Styles.textStyle20.copyWith(color: Colors.white),
                 ),
                 SizedBox(
                   width: 230,
                   child: Text(
                     'spaghetti with meatballs',
-                    style: Styles.textStyle16
-                        .copyWith(color: Colors.white),
+                    style: Styles.textStyle16.copyWith(color: Colors.white),
                   ),
                 ),
                 const Row(

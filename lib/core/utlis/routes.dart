@@ -14,7 +14,7 @@ Map<String, Widget Function(BuildContext)> routes = {
   LoginView.id: (context) => const LoginView(),
   SignUpView.id: (context) => const SignUpView(),
   HomeView.id: (context) => const HomeView(),
-  CartView.id:(context) => const CartView(),
-  FavouriteView.id:(context) => const FavouriteView(),
-  DetailsView.id:(context) => const DetailsView(),
+  CartView.id: (context) => const CartView(),
+  FavouriteView.id: (context) => const FavouriteView(),
+  DetailsView.id: (context) => const DetailsView(),
 };
