@@ -123,13 +123,14 @@ class HomeBody extends StatelessWidget {
                   if (state is FoodSucess) {
                     return TrendingListView(
                       foodModels: state.foodModels,
+                      
                     );
                   } else if (state is FoodFailure) {
                     return Center(
                       child: Text(state.errorMessage),
                     );
                   } else
-                    return const Center(child: CircularProgressIndicator());
+                    return TrendingListView(shimmer: state is Foodlodinag);
                 },
               ),
             ],

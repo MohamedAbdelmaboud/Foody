@@ -1,11 +1,16 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:foody/core/constants/my_colors.dart';
 import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/features/home/data/models/food_model/food_model.dart';
+import 'package:foody/features/home/presentaion/views/widgets/food_shimmer.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({
     super.key,
+    required this.foodModel,
   });
+  final FoodModel foodModel;
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +22,17 @@ class CartItem extends StatelessWidget {
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
-          child: Image.network(
-            'https://apipics.s3.amazonaws.com/vegan_api/16.jpg',
+          child: CachedNetworkImage(
+            placeholder: (context, url) {
+              return const ShimmerSkeleton(
+                width: 100,
+                height: 90,
+              );
+            },
+            imageUrl: foodModel.image,
             fit: BoxFit.fitWidth,
-            height: 90,
-            width: 85,
+            height: 100,
+            width: 90,
           ),
         ),
         Padding(
@@ -31,9 +42,9 @@ class CartItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                width: 100,
+                width: 120,
                 child: Text(
-                  'Easy rhubarb cordial',
+                  foodModel.title,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 3,
                   style: Styles.textStyle14.copyWith(

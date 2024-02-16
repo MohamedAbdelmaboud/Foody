@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:foody/features/home/data/models/food_model/food_model.dart';
+import 'package:foody/features/home/presentaion/view_model/cart_cubit/cart_cubit.dart';
 import 'package:foody/features/home/presentaion/views/widgets/cart_item.dart';
 
 class SlidableCartItem extends StatelessWidget {
   const SlidableCartItem({
     super.key,
+    required this.foodModel,
+    required this.index,
   });
-
+  final FoodModel foodModel;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Slidable(
@@ -19,13 +25,17 @@ class SlidableCartItem extends StatelessWidget {
         motion: const ScrollMotion(),
 
         // A pane can dismiss the Slidable.
-        dismissible: DismissiblePane(onDismissed: () {}),
+        dismissible: DismissiblePane(onDismissed: () {
+          BlocProvider.of<CartCubit>(context).delete(foodModel, index);
+        }),
 
         // All actions are defined in the children parameter.
         children: [
           // A SlidableAction can have an icon and/or a label.
           SlidableAction(
-            onPressed: (context) {},
+            onPressed: (context) {
+              BlocProvider.of<CartCubit>(context).delete(foodModel, index);
+            },
             backgroundColor: const Color(0xFFFE4A49),
             foregroundColor: Colors.white,
             icon: Icons.delete,
@@ -34,7 +44,9 @@ class SlidableCartItem extends StatelessWidget {
         ],
       ),
 
-      child: const CartItem(),
+      child: CartItem(
+        foodModel: foodModel,
+      ),
     );
   }
 }

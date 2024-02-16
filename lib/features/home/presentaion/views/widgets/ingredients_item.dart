@@ -20,9 +20,14 @@ class IngredientsItem extends StatelessWidget {
           color: Colors.cyan.shade300,
         ),
         const SizedBox(width: 8),
-        Text(
-          text,
-          style: Styles.textStyle14.copyWith(color: Colors.black),
+        SizedBox(
+          width: 200,
+          child: Text(
+            text,
+            style: Styles.textStyle14.copyWith(color: Colors.black),
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+          ),
         ),
       ],
     );

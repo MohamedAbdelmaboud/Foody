@@ -1,12 +1,17 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:foody/core/utlis/random.dart';
 import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/features/home/data/models/food_model/food_model.dart';
+import 'package:foody/features/home/presentaion/views/widgets/food_shimmer.dart';
 import 'package:foody/features/home/presentaion/views/widgets/row_item.dart';
 
 class FoodStack extends StatelessWidget {
   const FoodStack({
     super.key,
+    required this.foodModel,
   });
-
+  final FoodModel foodModel;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -16,8 +21,14 @@ class FoodStack extends StatelessWidget {
         ClipRRect(
           borderRadius:
               const BorderRadius.vertical(bottom: Radius.circular(20)),
-          child: Image.network(
-            'https://apipics.s3.amazonaws.com/vegan_api/16.jpg',
+          child: CachedNetworkImage(
+            placeholder: (context, url) {
+              return ShimmerSkeleton(
+                height: MediaQuery.of(context).size.height * 0.40,
+                width: double.infinity,
+              );
+            },
+            imageUrl: foodModel.image,
             fit: BoxFit.cover,
             height: MediaQuery.of(context).size.height * 0.40,
             width: double.infinity,
@@ -46,19 +57,22 @@ class FoodStack extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Lemon basmati rice',
+                  foodModel.title,
                   style: Styles.textStyle16.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    RowItem(
+                    const RowItem(
                         icon: Icons.group,
                         text: 'serves'), // Replace with your icon and text
-                    RowItem(icon: Icons.trending_up, text: 'Easy'),
-                    RowItem(icon: Icons.timer_outlined, text: '40 min'),
+                    RowItem(
+                        icon: Icons.trending_up, text: foodModel.difficulty),
+                    RowItem(
+                        icon: Icons.timer_outlined,
+                        text: '${generateRandomTime()}'),
                   ],
                 )
               ],

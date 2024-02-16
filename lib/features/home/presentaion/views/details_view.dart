@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:foody/core/utlis/random.dart';
 import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/features/home/data/models/food_model/food_model.dart';
 
 import 'widgets/custom_bottom_navigation_bar.dart';
 import 'widgets/food_stack.dart';
 import 'widgets/ingredients_item.dart';
 
 class DetailsView extends StatefulWidget {
-  const DetailsView({Key? key}) : super(key: key);
+  const DetailsView({Key? key, required this.foodModel}) : super(key: key);
   static String id = '/DetailsView';
-
+  final FoodModel foodModel;
   @override
   State<DetailsView> createState() => _DetailsViewState();
 }
@@ -27,11 +29,14 @@ class _DetailsViewState extends State<DetailsView> {
     return Scaffold(
       bottomNavigationBar: CustomBottomNavigationBar(
         isShaking: isShaking,
+        foodModel: widget.foodModel,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const FoodStack(),
+          FoodStack(
+            foodModel: widget.foodModel,
+          ),
           Padding(
             padding: const EdgeInsets.only(right: 30.0, left: 20, top: 50),
             child: Column(
@@ -64,7 +69,7 @@ class _DetailsViewState extends State<DetailsView> {
                     itemCount: 5,
                     itemBuilder: (BuildContext context, int index) {
                       return IngredientsItem(
-                        text: ingredients[index],
+                        text: generateRandomIngredients()[index],
                       );
                     },
                   ),
@@ -79,8 +84,6 @@ class _DetailsViewState extends State<DetailsView> {
                     });
 
                     showFtoast();
-
-                    // Reset the shaking after a short delay
                     Future.delayed(const Duration(milliseconds: 600), () {
                       setState(() {
                         isShaking = false;
@@ -138,15 +141,4 @@ class _DetailsViewState extends State<DetailsView> {
   }
 }
 
-List<String> ingredients = [
-  "2 tbsp vegetable oil",
-  "1 tsp mustard seeds",
-  "1 tsp chana dal",
-  "½ tsp white urad dal",
-  "10-12 fresh curry leaves",
-  "½ tsp ground turmeric",
-  "Juice 2 lemons",
-  "1 tsp salt",
-  "½ tsp sugar (optional)",
-  "400g (cooked weight) cooked and cooled basmati rice"
-];
+

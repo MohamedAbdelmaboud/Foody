@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foody/core/utlis/rondom.dart';
+import 'package:foody/core/utlis/random.dart';
 import 'package:foody/features/home/data/models/food_model/food_model.dart';
 import 'package:foody/features/home/presentaion/views/widgets/food_item.dart';
 
@@ -24,7 +24,7 @@ class FoodItemsGridView extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         return FoodItem(
           foodModel: foodModels[index],
-          incredients: generateRandomIngredients(),
+          incredients: generateRandomIngredientsNum(),
           time: generateRandomTime(),
         );
       },

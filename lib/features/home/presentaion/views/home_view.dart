@@ -24,7 +24,11 @@ class _HomeViewState extends State<HomeView> {
       floatingActionButton: FloatingActionButton(
         elevation: 10,
         onPressed: () {
-          controller.jumpToPage(0);
+          controller.animateToPage(
+            0,
+            duration: const Duration(milliseconds: 50),
+            curve: Curves.bounceIn,
+          );
         },
         shape: const CircleBorder(),
         backgroundColor: MyColors.primaryColor,
@@ -33,7 +37,6 @@ class _HomeViewState extends State<HomeView> {
           color: Colors.white,
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: MyBottomNavigationBar(
         bottomNavIndex: bottomNavIndex,
         onTap: (index) {

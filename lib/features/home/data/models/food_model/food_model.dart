@@ -1,7 +1,7 @@
 class FoodModel {
   String? id;
   String title;
-  String? difficulty;
+  String difficulty;
   String? portion;
   String? time;
   String? description;
@@ -12,7 +12,7 @@ class FoodModel {
     this.isFavourite=false,
     this.id,
     required this.title,
-    this.difficulty,
+    required this.difficulty,
     this.portion,
     this.time,
     this.description,

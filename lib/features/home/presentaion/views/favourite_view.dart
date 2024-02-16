@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foody/core/constants/assets.dart';
-import 'package:foody/core/constants/my_colors.dart';
 import 'package:foody/core/utlis/helpers.dart';
 import 'package:foody/core/utlis/styles.dart';
 import 'package:foody/features/home/presentaion/view_model/favourite_cubit/favourite_cubit.dart';
-
-import 'widgets/food_items_grid_view.dart';
+import 'package:foody/features/home/presentaion/views/widgets/food_items_grid_view.dart';
 
 class FavouriteView extends StatelessWidget {
   const FavouriteView({Key? key}) : super(key: key);
@@ -40,17 +37,19 @@ class FavouriteView extends StatelessWidget {
           ),
         ),
         body: BlocBuilder<FavouriteCubit, FavouriteState>(
-          builder: (context, state) {
-            if (state is FavouriteSucess) {
-              return FoodItemsGridView(
-                foodModels: state.foodModels,
-              );
-            }
-            return Center(
-              child: Image.asset('assets/images/Like3.jpg',height: 200,),
+            builder: (context, state) {
+          if (state is FavouriteSucess) {
+            return FoodItemsGridView(
+              foodModels: state.foodModels,
             );
-          },
-        ),
+          }
+          return Center(
+            child: Image.asset(
+              'assets/images/Like3.jpg',
+              height: 200,
+            ),
+          );
+        }),
       ),
     );
   }

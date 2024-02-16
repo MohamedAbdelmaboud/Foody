@@ -1,8 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:foody/core/constants/my_colors.dart';
 import 'package:foody/core/utlis/styles.dart';
 import 'package:foody/features/home/data/models/food_model/food_model.dart';
 import 'package:foody/features/home/presentaion/views/details_view.dart';
+import 'package:foody/features/home/presentaion/views/widgets/food_shimmer.dart';
 
 import 'favourite_Button.dart';
 
@@ -22,15 +24,25 @@ class FoodItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, DetailsView.id);
+        Navigator.pushNamed(context, DetailsView.id, arguments: foodModel);
       },
       child: Stack(
         alignment: Alignment.topRight,
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(15),
-            child: Image.network(
-                fit: BoxFit.cover, height: 250, width: 200, foodModel.image),
+            child: CachedNetworkImage(
+              placeholder: (context, url) {
+                return const ShimmerSkeleton(
+                  width: 200,
+                  height: 250,
+                );
+              },
+              imageUrl: foodModel.image,
+              fit: BoxFit.cover,
+              height: 250,
+              width: 200,
+            ),
           ),
           Container(
             alignment: Alignment.bottomCenter,

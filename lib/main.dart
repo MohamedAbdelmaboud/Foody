@@ -8,6 +8,7 @@ import 'package:foody/core/utlis/firebase_options.dart';
 import 'package:foody/core/utlis/routes.dart';
 import 'package:foody/features/Auth/presentaion/view_models/cubit/auth_cubit.dart';
 import 'package:foody/features/home/data/repos/home_repo_implmentaion.dart';
+import 'package:foody/features/home/presentaion/view_model/cart_cubit/cart_cubit.dart';
 import 'package:foody/features/home/presentaion/view_model/favourite_cubit/favourite_cubit.dart';
 import 'package:foody/features/home/presentaion/view_model/food_cubit/food_cubit.dart';
 import 'package:foody/features/splash/presentation/views/splash_view.dart';
@@ -28,6 +29,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+      BlocProvider(
+          create: (context) => CartCubit(),
+        ),
         BlocProvider(
         create: (context) => FavouriteCubit()),
         BlocProvider(

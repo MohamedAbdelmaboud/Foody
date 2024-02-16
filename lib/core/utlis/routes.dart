@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foody/features/Auth/presentaion/views/login_view.dart';
 import 'package:foody/features/Auth/presentaion/views/sign_up_view.dart';
+import 'package:foody/features/home/data/models/food_model/food_model.dart';
 import 'package:foody/features/home/presentaion/views/all_products_view.dart';
 import 'package:foody/features/home/presentaion/views/cart_view.dart';
 import 'package:foody/features/home/presentaion/views/details_view.dart';
@@ -17,6 +18,8 @@ Map<String, Widget Function(BuildContext)> routes = {
   HomeView.id: (context) => const HomeView(),
   CartView.id: (context) => const CartView(),
   FavouriteView.id: (context) => const FavouriteView(),
-  DetailsView.id: (context) => const DetailsView(),
+  DetailsView.id: (context) => DetailsView(
+        foodModel: ModalRoute.of(context)!.settings.arguments as FoodModel,
+      ),
   AllRecipesView.id: (context) => const AllRecipesView()
 };
