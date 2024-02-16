@@ -27,6 +27,7 @@ class SlidableCartItem extends StatelessWidget {
         // A pane can dismiss the Slidable.
         dismissible: DismissiblePane(onDismissed: () {
           BlocProvider.of<CartCubit>(context).delete(foodModel, index);
+          BlocProvider.of<CartCubit>(context).isEmpty();
         }),
 
         // All actions are defined in the children parameter.
@@ -35,6 +36,7 @@ class SlidableCartItem extends StatelessWidget {
           SlidableAction(
             onPressed: (context) {
               BlocProvider.of<CartCubit>(context).delete(foodModel, index);
+              BlocProvider.of<CartCubit>(context).isEmpty();
             },
             backgroundColor: const Color(0xFFFE4A49),
             foregroundColor: Colors.white,

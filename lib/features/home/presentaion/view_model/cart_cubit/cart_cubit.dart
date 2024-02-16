@@ -7,19 +7,18 @@ class CartCubit extends Cubit<CartState> {
   CartCubit() : super(CartInitial());
   List<FoodModel> foodModels = [];
   addToCart(FoodModel foodModel) {
-    if (foodModels.isEmpty) {
-      emit(CartEmpty());
-    }
     foodModels.add(foodModel);
     emit(CartSucess(foodModels: foodModels));
   }
 
   delete(FoodModel foodModel, int index) {
+    foodModels.removeAt(index);
+    emit(CartSucess(foodModels: foodModels));
+  }
+
+  isEmpty() {
     if (foodModels.isEmpty) {
       emit(CartEmpty());
     }
-
-    foodModels.removeAt(index);
-    emit(CartSucess(foodModels: foodModels));
   }
 }

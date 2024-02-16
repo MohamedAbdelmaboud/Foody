@@ -18,7 +18,7 @@ class AccountItem extends StatelessWidget {
         ClipRRect(
             borderRadius: BorderRadius.circular(99),
             child: Image.network(
-              BlocProvider.of<AuthCubit>(context).googleUser!.photoUrl ??
+              BlocProvider.of<AuthCubit>(context).googleUser?.photoUrl ??
                   'https://cdn-icons-png.flaticon.com/512/9131/9131529.png',
               height: 80,
             )),
@@ -29,14 +29,14 @@ class AccountItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              BlocProvider.of<AuthCubit>(context).googleUser!.displayName!,
+              BlocProvider.of<AuthCubit>(context).googleUser?.displayName?? 'mohamed abdlmaboud',
               style: Styles.textStyle14.copyWith(
                   fontWeight: FontWeight.w600, color: MyColors.kTextColor),
             ),
             SizedBox(
               width: 200,
               child: Text(
-                BlocProvider.of<AuthCubit>(context).googleUser!.email,
+                BlocProvider.of<AuthCubit>(context).googleUser?.email ??'',
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),

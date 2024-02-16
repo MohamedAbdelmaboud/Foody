@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foody/core/constants/assets.dart';
 import 'package:foody/core/utlis/helpers.dart';
 import 'package:foody/core/utlis/styles.dart';
@@ -55,14 +56,14 @@ class _CartViewState extends State<CartView> {
                     return CartListView(
                       foodModels: state.foodModels,
                     );
+                  } else {
+                    return Center(
+                      child: SvgPicture.asset(
+                        Assets.assetsImagesAddtoCart,
+                        height: 300,
+                      ),
+                    );
                   }
-
-                  return Center(
-                    child: Image.asset(
-                      Assets.assetsImagesAddtoCart,
-                      height: 200,
-                    ),
-                  );
                 }),
                 const MyBottomSheet(),
               ],
