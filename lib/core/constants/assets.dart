@@ -88,4 +88,5 @@ class Assets {
   /// Assets for assetsImagesSweets
   /// assets/images/sweets.png
   static const String assetsImagesSweets = "assets/images/sweets.png";
+  static const String assetsImagesLike = ' assets/images/me.jpg';
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foody/core/constants/my_colors.dart';
 import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/features/home/data/models/food_model/food_model.dart';
 import 'package:foody/features/home/presentaion/views/details_view.dart';
 
 import 'favourite_Button.dart';
@@ -9,8 +10,14 @@ class FoodItem extends StatelessWidget {
   const FoodItem({
     super.key,
     this.isFavourite = false,
+    required this.foodModel,
+    required this.incredients,
+    required this.time,
   });
+  final FoodModel foodModel;
   final bool isFavourite;
+  final int incredients;
+  final int time;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -23,10 +30,7 @@ class FoodItem extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(15),
             child: Image.network(
-                fit: BoxFit.cover,
-                height: 250,
-                width: 200,
-                'https://apipics.s3.amazonaws.com/vegan_api/16.jpg'),
+                fit: BoxFit.cover, height: 250, width: 200, foodModel.image),
           ),
           Container(
             alignment: Alignment.bottomCenter,
@@ -38,7 +42,7 @@ class FoodItem extends StatelessWidget {
                   end: Alignment.topCenter,
                   colors: [
                     const Color(0xffffffff),
-                    const Color(0xffffffff).withOpacity(.1),
+                    const Color(0xffffffff).withOpacity(.0),
                     const Color(0xffffffff).withOpacity(.0),
                   ]),
               borderRadius: BorderRadius.circular(10),
@@ -55,8 +59,8 @@ class FoodItem extends StatelessWidget {
                   SizedBox(
                     width: 150,
                     child: Text(
-                      'Easy rhubarb cordial',
-                      maxLines: 5,
+                      foodModel.title,
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle12.copyWith(
                           height: 1,
@@ -65,7 +69,7 @@ class FoodItem extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '9 incredients | 35 min',
+                    '$incredients incredients | $time min',
                     style: Styles.textStyle12.copyWith(
                         color: MyColors.primaryColor,
                         fontWeight: FontWeight.bold),
@@ -77,7 +81,9 @@ class FoodItem extends StatelessWidget {
           Positioned(
             right: 10,
             top: 10,
-            child: FavouriteButton(isFavourite: isFavourite),
+            child: FavouriteButton(
+              foodModel: foodModel,
+            ),
           )
         ],
       ),

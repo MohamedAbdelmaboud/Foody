@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foody/core/constants/assets.dart';
 import 'package:foody/core/constants/my_colors.dart';
 import 'package:foody/core/utlis/helpers.dart';
 import 'package:foody/core/utlis/styles.dart';
-import 'package:foody/features/home/presentaion/views/widgets/food_item.dart';
+import 'package:foody/features/home/presentaion/view_model/favourite_cubit/favourite_cubit.dart';
+
+import 'widgets/food_items_grid_view.dart';
 
 class FavouriteView extends StatelessWidget {
   const FavouriteView({Key? key}) : super(key: key);
@@ -18,7 +22,7 @@ class FavouriteView extends StatelessWidget {
         navigateToHome(context);
       },
       child: Scaffold(
-        backgroundColor: MyColors.scaffoldBg,
+        backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           centerTitle: true,
@@ -35,18 +39,15 @@ class FavouriteView extends StatelessWidget {
             },
           ),
         ),
-        body: GridView.builder(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          physics: const BouncingScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisSpacing: 15,
-            mainAxisSpacing: 15,
-            crossAxisCount: 2,
-          ),
-          itemCount: 6,
-          itemBuilder: (BuildContext context, int index) {
-            return const FoodItem(
-              isFavourite: true,
+        body: BlocBuilder<FavouriteCubit, FavouriteState>(
+          builder: (context, state) {
+            if (state is FavouriteSucess) {
+              return FoodItemsGridView(
+                foodModels: state.foodModels,
+              );
+            }
+            return Center(
+              child: Image.asset('assets/images/Like3.jpg',height: 200,),
             );
           },
         ),

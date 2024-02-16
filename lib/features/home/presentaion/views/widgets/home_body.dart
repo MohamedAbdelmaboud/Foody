@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foody/core/constants/my_colors.dart';
 import 'package:foody/core/utlis/styles.dart';
 import 'package:foody/features/home/data/models/category_model.dart';
+import 'package:foody/features/home/presentaion/view_model/food_cubit/food_cubit.dart';
+import 'package:foody/features/home/presentaion/views/all_products_view.dart';
 import 'package:foody/features/home/presentaion/views/widgets/custom_container.dart';
 import 'package:foody/features/home/presentaion/views/widgets/home_app_bar.dart';
 import 'package:foody/features/home/presentaion/views/widgets/serach_field.dart';
 
 import 'category_item.dart';
-import 'food_item.dart';
+import 'trending_list_view.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({
@@ -102,8 +105,7 @@ class HomeBody extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      // print('object');
-                      //fetch all products
+                      Navigator.pushNamed(context, AllRecipesView.id);
                     },
                     child: Text(
                       'View All',
@@ -116,19 +118,19 @@ class HomeBody extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              SizedBox(
-                height: 250,
-                child: ListView.separated(
-                  physics: const BouncingScrollPhysics(),
-                  separatorBuilder: (context, index) => const SizedBox(
-                    width: 15,
-                  ),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 10,
-                  itemBuilder: (BuildContext context, int index) {
-                    return const FoodItem();
-                  },
-                ),
+              BlocBuilder<FoodCubit, FoodState>(
+                builder: (context, state) {
+                  if (state is FoodSucess) {
+                    return TrendingListView(
+                      foodModels: state.foodModels,
+                    );
+                  } else if (state is FoodFailure) {
+                    return Center(
+                      child: Text(state.errorMessage),
+                    );
+                  } else
+                    return const Center(child: CircularProgressIndicator());
+                },
               ),
             ],
           ),

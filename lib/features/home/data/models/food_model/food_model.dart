@@ -1,32 +1,34 @@
 class FoodModel {
   String? id;
-  String? title;
+  String title;
   String? difficulty;
   String? portion;
   String? time;
   String? description;
   List<dynamic>? ingredients;
-  String? image;
-
+  String image;
+   bool isFavourite;
   FoodModel({
+    this.isFavourite=false,
     this.id,
-    this.title,
+    required this.title,
     this.difficulty,
     this.portion,
     this.time,
     this.description,
     this.ingredients,
-    this.image,
+    required this.image,
   });
 
-  FoodModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    title = json['title'];
-    difficulty = json['difficulty'];
-    portion = json['portion'];
-    time = json['time'];
-    description = json['description'];
-    ingredients = json['ingredients'];
-    image = json['image'];
+  factory FoodModel.fromJson(Map<String, dynamic> json) {
+    return FoodModel(
+        id: json['id'],
+        title: json['title'],
+        difficulty: json['difficulty'],
+        portion: json['portion'],
+        time: json['time'],
+        description: json['description'],
+        ingredients: json['ingredients'],
+        image: json['image']);
   }
 }
