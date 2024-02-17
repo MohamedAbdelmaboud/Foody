@@ -56,11 +56,11 @@ class _CustomTextFromFieldState extends State<CustomTextFromField> {
                 ? IconButton(
                     icon: widget.obscureText!
                         ? Icon(
-                            Icons.visibility,
+                            Icons.visibility_off,
                             size: widget.iconSize,
                           )
                         : Icon(
-                            Icons.visibility_off,
+                            Icons.visibility,
                             size: widget.iconSize,
                           ),
                     color: MyColors.primaryColor,

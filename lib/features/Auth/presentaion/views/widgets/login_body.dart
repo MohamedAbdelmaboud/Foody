@@ -11,8 +11,8 @@ import 'package:foody/features/Auth/presentaion/view_models/cubit/auth_state.dar
 import 'package:foody/features/Auth/presentaion/views/sign_up_view.dart';
 import 'package:foody/features/Auth/presentaion/views/widgets/custom_column.dart';
 import 'package:foody/features/Auth/presentaion/views/widgets/custom_text_form_field.dart';
-import 'package:foody/features/home/data/repos/home_repo.dart';
-import 'package:foody/features/home/presentaion/views/home_view.dart';
+import 'package:foody/features/layout/home/data/repos/home_repo.dart';
+import 'package:foody/features/layout/home/presentaion/views/home_view.dart';
 
 class LoginBody extends StatefulWidget {
   const LoginBody({

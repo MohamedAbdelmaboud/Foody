@@ -10,7 +10,7 @@ import 'package:foody/features/Auth/presentaion/view_models/cubit/auth_cubit.dar
 import 'package:foody/features/Auth/presentaion/view_models/cubit/auth_state.dart';
 import 'package:foody/features/Auth/presentaion/views/widgets/custom_column.dart';
 import 'package:foody/features/Auth/presentaion/views/widgets/custom_text_form_field.dart';
-import 'package:foody/features/home/presentaion/views/home_view.dart';
+import 'package:foody/features/layout/home/presentaion/views/home_view.dart';
 
 class SignUpBody extends StatefulWidget {
   const SignUpBody({
