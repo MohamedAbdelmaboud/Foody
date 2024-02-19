@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/core/themes/styles.dart';
 
 class IngredientsItem extends StatelessWidget {
   final String text;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:foody/core/utlis/random.dart';
-import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/core/themes/styles.dart';
 import 'package:foody/features/layout/home/data/models/food_model/food_model.dart';
 
 import 'widgets/custom_bottom_navigation_bar.dart';

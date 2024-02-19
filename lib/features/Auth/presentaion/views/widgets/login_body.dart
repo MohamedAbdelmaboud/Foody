@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foody/core/constants/assets.dart';
 import 'package:foody/core/constants/my_colors.dart';
-import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/core/themes/styles.dart';
 import 'package:foody/core/widgets/custom_button.dart';
 import 'package:foody/core/widgets/show_snack_bar.dart';
 import 'package:foody/features/Auth/presentaion/view_models/cubit/auth_cubit.dart';

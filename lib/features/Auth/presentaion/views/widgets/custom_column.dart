@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/core/themes/styles.dart';
 import 'package:foody/features/Auth/presentaion/views/widgets/custom_text_form_field.dart';
 
 class CustomColumn extends StatelessWidget {

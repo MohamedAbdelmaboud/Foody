@@ -16,4 +16,5 @@ class FoodCubit extends Cubit<FoodState> {
         (foodModels) => emit(FoodSucess(foodModels: foodModels)));
     print('////////////////////////////////////////////');
   }
+  
 }

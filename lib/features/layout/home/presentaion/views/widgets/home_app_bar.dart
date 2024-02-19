@@ -1,7 +1,7 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/core/themes/styles.dart';
 import 'package:foody/features/layout/cart/presentaion/view_model/cart_cubit/cart_cubit.dart';
 import 'package:foody/features/layout/cart/presentaion/views/cart_view.dart';
 

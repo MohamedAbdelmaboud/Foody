@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foody/core/constants/my_colors.dart';
-import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/core/themes/styles.dart';
 
 class TopRecipeContainer extends StatelessWidget {
   const TopRecipeContainer({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/core/themes/styles.dart';
 import 'package:foody/features/Auth/presentaion/view_models/cubit/auth_cubit.dart';
 import 'package:foody/features/Auth/presentaion/views/login_view.dart';
 import 'package:foody/features/layout/settings/data/models/setting_model.dart';

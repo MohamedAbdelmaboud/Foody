@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foody/core/constants/assets.dart';
 import 'package:foody/core/utlis/helpers.dart';
-import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/core/themes/styles.dart';
 import 'package:foody/features/layout/cart/presentaion/view_model/cart_cubit/cart_cubit.dart';
 import 'package:foody/features/layout/cart/presentaion/views/widgets/my_bottom_sheet.dart';
 

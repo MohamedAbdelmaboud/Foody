@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:foody/core/constants/my_colors.dart';
-import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/core/themes/styles.dart';
 import 'package:foody/core/widgets/shake_widget.dart';
 import 'package:foody/core/widgets/show_snack_bar.dart';
 import 'package:foody/features/layout/cart/presentaion/view_model/cart_cubit/cart_cubit.dart';

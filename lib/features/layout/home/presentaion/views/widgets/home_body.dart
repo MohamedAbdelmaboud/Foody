@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foody/core/constants/my_colors.dart';
-import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/core/themes/styles.dart';
 import 'package:foody/features/layout/home/data/models/category_model.dart';
 import 'package:foody/features/layout/home/presentaion/view_model/food_cubit/food_cubit.dart';
 import 'package:foody/features/layout/home/presentaion/views/all_products_view.dart';

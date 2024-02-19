@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foody/core/constants/my_colors.dart';
-import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/core/themes/styles.dart';
 import 'package:foody/features/layout/settings/data/models/setting_model.dart';
 import 'package:foody/features/layout/settings/presentaion/views/widgets/small_button.dart';
 

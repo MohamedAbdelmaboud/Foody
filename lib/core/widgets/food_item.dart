@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:foody/core/constants/my_colors.dart';
-import 'package:foody/core/utlis/styles.dart';
+import 'package:foody/core/themes/styles.dart';
 import 'package:foody/core/widgets/food_shimmer.dart';
 import 'package:foody/features/layout/home/data/models/food_model/food_model.dart';
 import 'package:foody/features/layout/home/presentaion/views/details_view.dart';
